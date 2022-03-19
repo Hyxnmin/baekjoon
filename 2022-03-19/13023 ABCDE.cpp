@@ -1,7 +1,8 @@
 #include<bits/stdc++.h>
 using namespace std;
-vector<int>graph[2001];
-bool is_visited[2001] = { 0 };
+#define MAX_SIZE 2001
+vector<int>graph[MAX_SIZE];
+bool is_visited[MAX_SIZE] = { 0, };
 int ans = 0;
 void find_relationship(int x, int cnt) {
 	if (cnt == 4) {
