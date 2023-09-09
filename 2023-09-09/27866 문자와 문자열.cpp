@@ -10,11 +10,11 @@ int main(void) {
 
 	int i;
 	string str;
+
 	getline(cin, str);
 	cin >> i;
 
 	cout << str[i - 1];
-
 
 	return 0;
 }
