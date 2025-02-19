@@ -7,25 +7,31 @@ int main() {
     cin.tie(NULL), cout.tie(NULL);
 
     string str[3];
-    int arr[3] = { 0 }, div = 0, comp[15] = { 0 }, pos = 0;
+    long long arr[3] = { 0 }, div = 1987654321, comp[15] = { 0 }, pos = 0, n = 0;
 
-    for (int i = 0;i < 15;++i) {
-        if (i + 1 % 3 != 0 && i + 1 % 5 != 0) {
+    for (int i = 0; i < 15; ++i) {
+        if ((i + 1) % 3 != 0 && (i + 1) % 5 != 0) {
             comp[i] = i + 1;
         }
     }
 
-    for (int i = 0;i < 3;++i) {
+    for (int i = 0; i < 3; ++i) {
         getline(cin, str[i]);
-        if (str[i] != "Fizz" && str[i] != "Buzz") {
+        if (str[i] != "Fizz" && str[i] != "Buzz" && str[i] != "FizzBuzz") {
             arr[i] = stoi(str[i]) % 15;
-            div = stoi(str[i]) / 15;
+            n = stoi(str[i]) / 15;
+            if (div > n) {
+                div = n;
+            }
         }
     }
 
-    for (int i = 0;i < 13;++i) {
-        if (arr[i] == comp[i] && arr[i + 1] == comp[i + 1] && arr[i + 2] == comp[i + 2]) {
-            pos = i + 3;
+    for (int i = 0; i < 15; ++i) {
+        if (arr[0] == comp[i] && arr[1] == comp[(i + 1) % 15] && arr[2] == comp[(i + 2) % 15]) {
+            pos = i + 4;
+            if (i > 12) {
+                pos %= 15, div++;
+            }
             break;
         }
     }
