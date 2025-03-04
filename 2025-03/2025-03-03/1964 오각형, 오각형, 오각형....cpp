@@ -15,5 +15,6 @@ int main() {
     for (long long i = 1; i <= n; ++i) {
         arr[i] += (arr[i - 1] + 3 * i + 1) % 45678;
     }
+
     cout << arr[n];
 }
