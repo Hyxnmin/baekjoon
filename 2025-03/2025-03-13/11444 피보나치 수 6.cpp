@@ -10,7 +10,7 @@ long long fibonacci(long long n) {
 
     long long res;
 
-    if (n % 2 == 1) {
+    if (n % 2 == 0) {
         res = (fibonacci(n / 2) * ((fibonacci(n / 2 + 1) % MOD + fibonacci(n / 2 - 1) % MOD))) % MOD;
     }
     else {
