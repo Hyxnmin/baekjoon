@@ -2,28 +2,21 @@
 #include <map>
 using namespace std;
 
-map<long long, long long> m;
+map<long, long> m;
 const int MOD = 1000000007;
 
 long long fibonacci(long long n) {
-    if (n == 0) return 0;
-    if (n == 1 || n == 2) return 1;
-    if (n == 3) return 2;
+    if (m[n] != 0)return m[n];
 
-    if (m.find(n) != m.end()) return m[n];
-
-    long long p, q;
+    long long res;
 
     if (n % 2 == 1) {
-        p = fibonacci(n / 2 + 1) % MOD;
-        q = fibonacci(n / 2) % MOD;
-        return m[n] = (p * p % MOD + q * q % MOD) % MOD;
+        res = (fibonacci(n / 2) * ((fibonacci(n / 2 + 1) % MOD + fibonacci(n / 2 - 1) % MOD))) % MOD;
     }
     else {
-        p = fibonacci(n / 2 + 1) % MOD;
-        q = fibonacci(n / 2 - 1) % MOD;
-        return m[n] = ((p * p % MOD - q * q % MOD) + MOD) % MOD;
+        res = ((fibonacci((n + 1) / 2) * fibonacci((n + 1) / 2)) % MOD + (fibonacci((n - 1) / 2) * fibonacci((n - 1) / 2)) % MOD) % MOD;
     }
+    return m[n] = res % MOD;
 }
 
 int main() {
@@ -31,8 +24,9 @@ int main() {
     cin.tie(NULL), cout.tie(NULL);
 
     long long n;
+    m[0] = 0, m[1] = 1, m[2] = 1;
     cin >> n;
-    cout << fibonacci(n) << "\n";
+    cout << fibonacci(n);
 
     return 0;
 }
