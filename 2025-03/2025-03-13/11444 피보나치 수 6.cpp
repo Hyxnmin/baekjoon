@@ -17,15 +17,11 @@ long long fibonacci(long long n) {
     if (n % 2 == 1) {
         p = fibonacci(n / 2 + 1) % MOD;
         q = fibonacci(n / 2) % MOD;
-        m[n / 2 + 1] = p;
-        m[n / 2] = q;
         return m[n] = (p * p % MOD + q * q % MOD) % MOD;
     }
     else {
         p = fibonacci(n / 2 + 1) % MOD;
         q = fibonacci(n / 2 - 1) % MOD;
-        m[n / 2 + 1] = p;
-        m[n / 2 - 1] = q;
         return m[n] = ((p * p % MOD - q * q % MOD) + MOD) % MOD;
     }
 }
