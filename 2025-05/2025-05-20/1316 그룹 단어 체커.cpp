@@ -20,7 +20,7 @@ int main() {
         getline(cin, str);
         for (int j = 0;j < str.size() - 1;++j) {
             if (str[j] != str[j + 1]) {
-                if (m.find(str[j+1]) != m.end()) {
+                if (m.find(str[j + 1]) != m.end()) {
                     goto nxt;
                 }
                 m.insert({ str[j], 1 });
@@ -32,4 +32,5 @@ int main() {
     }
 
     cout << cnt;
+    return 0;
 }
