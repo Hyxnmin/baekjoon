@@ -9,12 +9,12 @@ int main() {
     int n, cnt = 0, s = 0, t = 0;
     cin >> n;
 
-    while (cnt + s < n) {
+    while (cnt < n) {
         s++;
         cnt += s;
     }
 
-    t = cnt + s - n;
+    t = cnt - n;
     if (s % 2 == 1) {
         cout << 1 + t << '/' << s - t;
     }
